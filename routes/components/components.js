@@ -15,7 +15,7 @@ router.get('/api/components', (req, res) => {
     .catch((error) => res.json({message:error}));
     });
 
-router.post('/api/components', (req, res) => {
+router.post('/api/components/newComponent', (req, res) => {
     const componentModel = component(req.body);
     componentModel
     .save()

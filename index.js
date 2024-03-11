@@ -10,7 +10,7 @@ app.use(express.json())
 const port = process.env.PORT || 4000
 
 app.get('/', (req, res) => res.send('Hello World!'))
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+app.listen(port, () => console.log(`Api REST app listening on port ${port}!`))
 
 
 
@@ -19,7 +19,7 @@ app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 const { MongoClient, ServerApiVersion } = require("mongodb");
 
 // Replace the placeholder with your Atlas connection string
-const uri = "mongodb+srv://admin:admin@cluster0.0qmm7xx.mongodb.net/iot_db";
+const uri = "mongodb+srv://2122300432:92254103d@cluster0.og0mgdq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
 
 mongoose.connect(uri);
@@ -70,7 +70,7 @@ process.on('uncaughtException', function(err){
   console.log(err.stack);
 })
 
-app.use(errorHadler);
+//app.use(errorHandler);
 
 
 app.use(bodyParser.json());

@@ -13,7 +13,7 @@ const componentSchema = new mongoose.Schema({
         type : String
     },
     activo : {
-        type: String
+        type: Boolean
     },
     tipo : {
         type : String
