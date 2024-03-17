@@ -37,8 +37,20 @@ router.put('/api/components/:component_id', async(req, res) => {
     const componente = await component.findOneAndReplace({component_id:Id}, req.body, {new:true});
     console.log({componente});
     res.json({componente});
-  } catch (e) {
-    console.log(e.message);
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).json({message:error});
+  }
+})
+
+router.patch('/api/components/:component_id', async(req, res) => {
+  try {
+    const Id = req.params.component_id;
+    const componente = await component.findOneAndUpdate({component_id:Id}, req.body, {new:true});
+    console.log({componente});
+    res.json({componente});
+  } catch (error) {
+    console.log(error.message);
     res.status(500).json({message:error});
   }
 })
