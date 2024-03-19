@@ -23,13 +23,17 @@ router.post('/api/components/newComponent', (req, res) => {
     .catch((error) => res.json({message:error}))
 });
 
-router.get('/api/components/:component_id', (req, res) => {
-    const {id} = req.params;
-    component
-    .findById(id)
-    .then((Component) => res.json(Component))
-    .catch((error) => res.json({message:error}));
-  })
+router.get('/api/components/:component_id', async(req, res) => {
+  try {
+    const Id = req.params.component_id;
+    const componente = await component.findOne({component_id:Id}, req.body, {new:true});
+    console.log({componente});
+    res.json({componente});
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).json({message:error});
+  }
+})
 
 router.put('/api/components/:component_id', async(req, res) => {
   try {
