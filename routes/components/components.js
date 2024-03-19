@@ -23,7 +23,7 @@ router.post('/api/components/newComponent', (req, res) => {
     .catch((error) => res.json({message:error}))
 });
 
-router.get('/api/components/:id', (req, res) => {
+router.get('/api/components/:component_id', (req, res) => {
     const {id} = req.params;
     component
     .findById(id)
